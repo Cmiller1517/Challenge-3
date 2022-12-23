@@ -1,11 +1,11 @@
 // Arrays for all the different options for the password
-var characterLength = 8;
-var choiceArr = [];
+var characterLength = 128;
+var passwordArray = [];
 
-var upperCaseArr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U', 'V', 'W', 'X','Y','Z',];
-var lowerCaseArr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u', 'v', 'w', 'x','y','z',];
-var specialCharArr = ['!' , '@', '#' , '$', '$', '%', '^', '&', '*0', '<', '>', '/'];
-var numArr = ['1' , '2', '3' , '4', '5', '6', '7', '8', '*9', '0',];
+var upperCaseArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U', 'V', 'W', 'X','Y','Z',];
+var lowerCaseArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u', 'v', 'w', 'x','y','z',];
+var specialCharArray = ['!' , '@', '#' , '$', '$', '%', '^', '&', '*0', '<', '>', '/'];
+var numArray = ['1' , '2', '3' , '4', '5', '6', '7', '8', '*9', '0',];
 
 
 // Assignment Code
@@ -31,14 +31,14 @@ function writePassword() {
 function generatePassword(){
   var password = ""
   for(var i = 0; i < characterLength; i++) {
-    var randomIndex = Math.floor(Math.random() * choiceArr.length);
-    password = password + choiceArr[randomIndex];
+    var randomIndex = Math.floor(Math.random() * passwordArray.length);
+    password = password + passwordArray[randomIndex];
   }
   return password;
 }
 
 function getPrompts() {
-  choiceArr = [];
+  passwordArray = [];
 
   characterLength = parseInt(prompt("How many characters would you like to use in your password?  (8 - 128)"));
 
@@ -49,34 +49,19 @@ function getPrompts() {
   }
   // promt user for password if they want to include lower case
  if (confirm("would you like lowercase letters in your password?")) {
-    choiceArr = choiceArr.concat(lowerCaseArr);
+  passwordArray = passwordArray.concat(lowerCaseArray);
   }
   // promt user for password if they want to include uppercase
   if (confirm("would you like uppercase letters in your password?")) {
-    choiceArr = choiceArr.concat(upperCaseArr);
+    passwordArray = passwordArray.concat(upperCaseArray);
   }
   // promt user for password if they want to include special letters
   if (confirm("would you like special letters in your password?")) {
-    choiceArr = choiceArr.concat(specialCharArr);
+    passwordArray = passwordArray.concat(specialCharArray);
   }
   // promt user for password if they want to include numbers
   if (confirm("would you like numbers in your password?")) {
-    choiceArr = choiceArr.concat(numArr);
+    passwordArray = passwordArray.concat(numArray);
   }
   return true;
 }
-
-
-
-
-
-// validate that one char type selected
-
-// display password 
-
-
-
-// Write password to the #password input
-
-
-
